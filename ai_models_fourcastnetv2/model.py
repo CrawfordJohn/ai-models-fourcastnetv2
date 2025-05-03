@@ -193,10 +193,13 @@ class FourCastNetv2(Model):
         )
 
         all_fields_numpy = all_fields.to_numpy(dtype=np.float32)
+        copied_arr = all_fields_numpy.copy()
+        np.save("/content/drive/Shareddrives/Data Science/AI Models/test_forecasts/input_arr_fcnv2.npy", copied_arr)
 
         all_fields_numpy = self.normalise(all_fields_numpy)
-
-        np.save("/content/drive/Shareddrives/Data Science/AI Models/test_forecasts/input_arr.npy", all_fields_numpy)
+        print(all_fields_numpy.mean())
+        print(all_fields_numpy.std())
+        np.save("/content/drive/Shareddrives/Data Science/AI Models/test_forecasts/input_arr_norm.npy", all_fields_numpy)
         model = self.load_model(self.checkpoint_path)
 
         # Run the inference session
