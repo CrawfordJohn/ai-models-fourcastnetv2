@@ -196,12 +196,12 @@ class FourCastNetv2(Model):
 
         all_fields_numpy = self.normalise(all_fields_numpy)
 
+        np.save("input_arr.npy", all_fields_numpy)
         model = self.load_model(self.checkpoint_path)
 
         # Run the inference session
         input_iter = torch.from_numpy(all_fields_numpy).to(self.device)
 
-        print(f"Input iter shape: {input_iter.shape}")
         # sample_sfc = all_fields.sel(param="2t")[0]
         self.write_input_fields(all_fields)
 
