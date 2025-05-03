@@ -196,7 +196,7 @@ class FourCastNetv2(Model):
 
         all_fields_numpy = self.normalise(all_fields_numpy)
 
-        np.save("input_arr.npy", all_fields_numpy)
+        np.save("/content/drive/Shareddrives/Data Science/AI Models/test_forecasts/input_arr.npy", all_fields_numpy)
         model = self.load_model(self.checkpoint_path)
 
         # Run the inference session
