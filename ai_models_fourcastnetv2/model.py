@@ -201,6 +201,7 @@ class FourCastNetv2(Model):
         # Run the inference session
         input_iter = torch.from_numpy(all_fields_numpy).to(self.device)
 
+        print(f"Input iter shape: {input_iter.shape}")
         # sample_sfc = all_fields.sel(param="2t")[0]
         self.write_input_fields(all_fields)
 
